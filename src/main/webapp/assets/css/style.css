@@ -1,0 +1,821 @@
+/* ============================================================
+   FoodExpress — Custom Stylesheet
+   Color Palette:
+     Primary  : #FF6B35  (orange)
+     Secondary: #2C3E50  (dark navy)
+     Accent   : #F7C948  (golden yellow)
+   ============================================================ */
+
+/* ============================================================
+   SECTION 1 — CSS Custom Properties (Design Tokens)
+   ============================================================ */
+:root {
+  --primary:      #FF6B35;
+  --primary-dark: #e05520;
+  --secondary:    #2C3E50;
+  --accent:       #F7C948;
+  --bg:           #F8F9FA;
+  --card-shadow:  0 4px 15px rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.15);
+  --success:      #28A745;
+  --danger:       #DC3545;
+  --radius:       12px;
+  --radius-sm:    8px;
+  --transition:   all 0.3s ease;
+}
+
+/* ============================================================
+   SECTION 2 — Global / Base Styles
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+/* Bootstrap primary override */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.35);
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 107, 53, 0.4);
+}
+
+/* General card enhancements */
+.card {
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+/* ============================================================
+   SECTION 3 — Navbar
+   ============================================================ */
+
+/* Brand logo text */
+.navbar-brand {
+  color: var(--primary) !important;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.3px;
+}
+
+/* Customer navbar — light variant with primary border */
+.navbar-customer {
+  background-color: #ffffff;
+  border-bottom: 2px solid var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Admin navbar — dark secondary background */
+.admin-navbar,
+.navbar[style*="#2C3E50"],
+.navbar[style*="#1a252f"] {
+  background-color: var(--secondary) !important;
+}
+
+/* Cart icon badge positioning */
+.cart-badge {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-badge .badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  font-size: 0.65rem;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary);
+  color: #fff;
+}
+
+/* Navbar link hover underline */
+.navbar .nav-link {
+  position: relative;
+  transition: var(--transition);
+}
+
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.25s ease;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+  width: 100%;
+}
+
+/* ============================================================
+   SECTION 4 — Hero Section
+   ============================================================ */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary) 0%, #e85d04 100%);
+  color: #ffffff;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 0.85rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: #ffffff;
+  color: var(--primary);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: var(--transition);
+}
+
+.hero-btn:hover {
+  background: var(--accent);
+  color: var(--secondary);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================================
+   SECTION 5 — Restaurant Cards
+   ============================================================ */
+.restaurant-card {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  overflow: hidden;
+  height: 100%;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.restaurant-card .card-img-top {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius) var(--radius) 0 0;
+  transition: transform 0.4s ease;
+}
+
+.restaurant-card:hover .card-img-top {
+  transform: scale(1.04);
+}
+
+/* Cuisine type badge */
+.cuisine-badge {
+  background-color: var(--accent);
+  color: var(--secondary);
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+/* Rating display */
+.rating-badge {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* View menu button */
+.btn-view-menu {
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  transition: var(--transition);
+}
+
+.btn-view-menu:hover {
+  background-color: var(--primary-dark);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   SECTION 6 — Food Item Cards
+   ============================================================ */
+.food-card {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  overflow: hidden;
+  height: 100%;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.food-card .card-img-top {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+/* Price display on food cards */
+.food-price {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Category section divider heading */
+.food-category-header {
+  border-left: 4px solid var(--primary);
+  padding-left: 10px;
+  margin: 20px 0 10px;
+  font-weight: 600;
+  color: var(--secondary);
+  font-size: 1.1rem;
+}
+
+/* Add to cart mini form */
+.btn-add-cart {
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.3rem 0.9rem;
+  transition: var(--transition);
+}
+
+.btn-add-cart:hover {
+  background-color: var(--primary-dark);
+  color: #ffffff;
+}
+
+/* ============================================================
+   SECTION 7 — Cart Page
+   ============================================================ */
+
+/* Cart table header */
+.cart-table thead,
+.cart-table thead th {
+  background-color: var(--secondary);
+  color: #ffffff;
+}
+
+/* Total row highlight */
+.cart-total-row td {
+  font-weight: 700;
+  font-size: 1.1rem;
+  background-color: rgba(255, 107, 53, 0.08);
+}
+
+/* Quantity input in cart */
+.qty-input {
+  width: 70px;
+  text-align: center;
+  border-radius: var(--radius-sm);
+  border: 1px solid #dee2e6;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease;
+}
+
+.qty-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+}
+
+/* Checkout proceed button */
+.btn-checkout {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.btn-checkout:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #c94010);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 107, 53, 0.4);
+}
+
+/* ============================================================
+   SECTION 8 — Order Status Stepper
+   ============================================================ */
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 30px 0;
+  position: relative;
+}
+
+/* Horizontal connector line behind circles */
+.stepper::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-color: #dee2e6;
+  z-index: 0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #dee2e6;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* Completed step — green circle */
+.step.completed .step-circle {
+  background-color: var(--success);
+}
+
+/* Active (current) step — primary color, slightly enlarged */
+.step.active .step-circle {
+  background-color: var(--primary);
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.25);
+}
+
+.step-label {
+  font-size: 0.75rem;
+  margin-top: 8px;
+  text-align: center;
+  color: #6c757d;
+  max-width: 75px;
+  line-height: 1.3;
+}
+
+.step.active .step-label {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.step.completed .step-label {
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+/* ============================================================
+   SECTION 9 — Payment Page
+   ============================================================ */
+.payment-card {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+}
+
+/* Info block with left accent border */
+.payment-method-info {
+  background-color: #f8f9fa;
+  border-radius: var(--radius-sm);
+  padding: 15px;
+  border-left: 4px solid var(--primary);
+}
+
+.payment-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Payment method radio labels */
+.payment-label {
+  border: 2px solid #dee2e6;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.payment-label:hover {
+  border-color: var(--primary);
+  background-color: rgba(255, 107, 53, 0.03);
+}
+
+input[type="radio"]:checked + .payment-label {
+  border-color: var(--primary);
+  background-color: rgba(255, 107, 53, 0.06);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Pay button */
+.btn-pay {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.btn-pay:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #c94010);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-confirm {
+  background: linear-gradient(135deg, var(--success), #1e8449);
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.btn-confirm:hover {
+  background: #1e8449;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   SECTION 10 — Success / Failure Result Pages
+   ============================================================ */
+.result-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  display: block;
+  animation: resultBounce 0.6s ease;
+}
+
+@keyframes resultBounce {
+  0%   { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.success-page {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.failure-page {
+  text-align: center;
+  margin-top: 80px;
+}
+
+/* Shake animation for failure icon */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-10px); }
+  40%       { transform: translateX(10px); }
+  60%       { transform: translateX(-6px); }
+  80%       { transform: translateX(6px); }
+}
+
+.shake-anim {
+  animation: shake 0.5s ease;
+}
+
+/* ============================================================
+   SECTION 11 — Admin Dashboard
+   ============================================================ */
+.admin-navbar {
+  background-color: var(--secondary);
+}
+
+.stat-card {
+  border: none;
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  color: #ffffff;
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-top: 0.35rem;
+  display: block;
+}
+
+/* Quick action cards on dashboard */
+.action-card {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  display: block;
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover);
+  text-decoration: none;
+}
+
+/* ============================================================
+   SECTION 12 — Admin Tables
+   ============================================================ */
+.admin-table thead,
+.admin-table thead th {
+  background-color: var(--secondary);
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+}
+
+.admin-table tbody tr:hover {
+  background-color: rgba(255, 107, 53, 0.04);
+  cursor: default;
+}
+
+/* Rounded pill action buttons in admin tables */
+.action-btn {
+  border-radius: 20px;
+  font-size: 0.8rem;
+  padding: 3px 12px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.action-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Admin form cards */
+.form-card {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+}
+
+/* Section heading bar used in admin pages */
+.section-title {
+  color: var(--secondary);
+  font-weight: 700;
+  border-left: 4px solid var(--primary);
+  padding-left: 0.7rem;
+}
+
+/* ============================================================
+   SECTION 13 — Alerts / Flash Messages
+   ============================================================ */
+.alert {
+  border-radius: var(--radius);
+  border-left-width: 4px;
+  animation: fadeSlideIn 0.35s ease;
+}
+
+.alert-dismissible {
+  position: relative;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   SECTION 14 — Footer
+   ============================================================ */
+.footer,
+footer {
+  background-color: var(--secondary);
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 60px;
+}
+
+.footer a,
+footer a {
+  color: var(--accent);
+  transition: color 0.2s ease;
+}
+
+.footer a:hover,
+footer a:hover {
+  color: #ffffff;
+}
+
+/* ============================================================
+   SECTION 15 — Responsive Overrides (max-width: 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* Hero */
+  .hero-section {
+    padding: 60px 0;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  /* Cards */
+  .restaurant-card {
+    margin-bottom: 20px;
+  }
+
+  .food-card {
+    margin-bottom: 16px;
+  }
+
+  /* Stepper collapses into a wrapping flex row on small screens */
+  .stepper {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .stepper::before {
+    display: none; /* Hide connector line on mobile */
+  }
+
+  .step {
+    flex: 0 0 calc(33.33% - 10px);
+    margin-bottom: 10px;
+  }
+
+  .step-label {
+    font-size: 0.65rem;
+  }
+
+  /* Tables become scrollable */
+  .table-responsive {
+    border-radius: var(--radius);
+    overflow-x: auto;
+  }
+
+  /* Admin sidebar / stat cards stack */
+  .stat-card {
+    margin-bottom: 16px;
+  }
+
+  /* Checkout columns */
+  .col-md-7,
+  .col-md-5 {
+    margin-bottom: 16px;
+  }
+
+  .payment-label {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* ============================================================
+   SECTION 16 — Reusable Design System Components
+   ============================================================ */
+.page-header {
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: #fff;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.detail-card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+  background: #fff;
+}
+
+.price-col {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.offer-badge {
+  background: linear-gradient(135deg, #FF6B35, #e05520);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.empty-state-box {
+  text-align: center;
+  padding: 5rem 1.5rem;
+  background: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  max-width: 650px;
+  margin: 2rem auto;
+}
+
+.empty-state-icon {
+  font-size: 5.5rem;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  animation: floatEmpty 3s ease-in-out infinite;
+}
+
+@keyframes floatEmpty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+

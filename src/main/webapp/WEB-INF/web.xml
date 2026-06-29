@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>Online Food Delivery System</display-name>
+
+    <!-- ===== Welcome File ===== -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- ===== Session Configuration ===== -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <!-- ===================================================
+         SERVLET DECLARATIONS (all 17)
+         =================================================== -->
+
+    <!-- 1. LoginServlet -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.LoginServlet</servlet-class>
+    </servlet>
+
+    <!-- 2. RegisterServlet -->
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.RegisterServlet</servlet-class>
+    </servlet>
+
+    <!-- 3. LogoutServlet -->
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.LogoutServlet</servlet-class>
+    </servlet>
+
+    <!-- 4. HomeServlet -->
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.HomeServlet</servlet-class>
+    </servlet>
+
+    <!-- 5. RestaurantServlet -->
+    <servlet>
+        <servlet-name>RestaurantServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.RestaurantServlet</servlet-class>
+    </servlet>
+
+    <!-- 6. RestaurantMenuServlet -->
+    <servlet>
+        <servlet-name>RestaurantMenuServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.RestaurantMenuServlet</servlet-class>
+    </servlet>
+
+    <!-- 7. SearchServlet -->
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.SearchServlet</servlet-class>
+    </servlet>
+
+    <!-- 8. CartServlet -->
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.CartServlet</servlet-class>
+    </servlet>
+
+    <!-- 9. CheckoutServlet -->
+    <servlet>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.CheckoutServlet</servlet-class>
+    </servlet>
+
+    <!-- 10. OrderServlet -->
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.OrderServlet</servlet-class>
+    </servlet>
+
+    <!-- 11. TrackOrderServlet -->
+    <servlet>
+        <servlet-name>TrackOrderServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.TrackOrderServlet</servlet-class>
+    </servlet>
+
+    <!-- 12. PaymentServlet -->
+    <servlet>
+        <servlet-name>PaymentServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.PaymentServlet</servlet-class>
+    </servlet>
+
+    <!-- 13. AdminLoginServlet -->
+    <servlet>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.AdminLoginServlet</servlet-class>
+    </servlet>
+
+    <!-- 14. AdminDashboardServlet -->
+    <servlet>
+        <servlet-name>AdminDashboardServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.AdminDashboardServlet</servlet-class>
+    </servlet>
+
+    <!-- 15. AdminRestaurantServlet -->
+    <servlet>
+        <servlet-name>AdminRestaurantServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.AdminRestaurantServlet</servlet-class>
+    </servlet>
+
+    <!-- 16. AdminFoodServlet -->
+    <servlet>
+        <servlet-name>AdminFoodServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.AdminFoodServlet</servlet-class>
+    </servlet>
+
+    <!-- 17. AdminOrderServlet -->
+    <servlet>
+        <servlet-name>AdminOrderServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.AdminOrderServlet</servlet-class>
+    </servlet>
+
+    <!-- 18. ReviewServlet -->
+    <servlet>
+        <servlet-name>ReviewServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.ReviewServlet</servlet-class>
+    </servlet>
+
+    <!-- 19. InvoiceServlet -->
+    <servlet>
+        <servlet-name>InvoiceServlet</servlet-name>
+        <servlet-class>com.fooddelivery.controller.InvoiceServlet</servlet-class>
+    </servlet>
+
+    <!-- ===================================================
+         SERVLET MAPPINGS
+         =================================================== -->
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RestaurantServlet</servlet-name>
+        <url-pattern>/restaurants</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RestaurantMenuServlet</servlet-name>
+        <url-pattern>/menu</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/orders</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>TrackOrderServlet</servlet-name>
+        <url-pattern>/trackOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>PaymentServlet</servlet-name>
+        <url-pattern>/payment</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <url-pattern>/admin/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AdminDashboardServlet</servlet-name>
+        <url-pattern>/admin/dashboard</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AdminRestaurantServlet</servlet-name>
+        <url-pattern>/admin/restaurant</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AdminFoodServlet</servlet-name>
+        <url-pattern>/admin/food</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AdminOrderServlet</servlet-name>
+        <url-pattern>/admin/orders</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ReviewServlet</servlet-name>
+        <url-pattern>/review</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InvoiceServlet</servlet-name>
+        <url-pattern>/invoice</url-pattern>
+    </servlet-mapping>
+
+    <!-- ===== Error Pages ===== -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/views/error404.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/views/error500.jsp</location>
+    </error-page>
+
+</web-app>
